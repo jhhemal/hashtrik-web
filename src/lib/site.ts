@@ -221,42 +221,57 @@ export const products = [
   },
 ];
 
-export const team = [
+// The team tree: two co-founders, each with the people who report to them.
+// The founders are real; the five people under them are placeholders.
+export type Person = { name: string; role: string; bio: string; skills: string[] };
+export type Founder = Person & { reports: Person[] };
+
+export const founders: Founder[] = [
   {
-    name: "Arif Rahman",
-    role: "Founder, engineering",
-    bio: "Sets the technical direction and still writes code every week.",
-    skills: ["Architecture", "Node.js", "AWS"],
+    name: "Asmaul-Husna Rinvi",
+    role: "CEO and co-founder",
+    bio: "Leads the company, client relationships and product direction.",
+    skills: ["Strategy", "Clients", "Product"],
+    reports: [
+      {
+        name: "Nadia Islam",
+        role: "Head of design",
+        bio: "Turns rough ideas into prototypes people can click through.",
+        skills: ["Research", "Figma"],
+      },
+      {
+        name: "Mitu Chowdhury",
+        role: "Project manager",
+        bio: "Keeps scope, dates and budget honest, and is your day-to-day contact.",
+        skills: ["Planning", "Delivery"],
+      },
+    ],
   },
   {
-    name: "Nadia Islam",
-    role: "Head of design",
-    bio: "Turns rough ideas into prototypes people can click through.",
-    skills: ["Research", "Figma", "Design systems"],
-  },
-  {
-    name: "Tanvir Ahmed",
-    role: "Backend engineer",
-    bio: "Builds the databases, APIs and integrations behind every product.",
-    skills: ["Python", "PostgreSQL", "APIs"],
-  },
-  {
-    name: "Sadia Karim",
-    role: "Frontend engineer",
-    bio: "Makes interfaces fast, accessible and pleasant to use.",
-    skills: ["React", "Next.js", "Accessibility"],
-  },
-  {
-    name: "Rakib Hasan",
-    role: "Mobile engineer",
-    bio: "Ships iOS and Android apps from a single codebase.",
-    skills: ["Flutter", "Swift", "Kotlin"],
-  },
-  {
-    name: "Mitu Chowdhury",
-    role: "Project manager",
-    bio: "Keeps scope, dates and budget honest, and is your day-to-day contact.",
-    skills: ["Planning", "Delivery", "Client care"],
+    name: "Jahidul Hasan",
+    role: "CTO and co-founder",
+    bio: "Leads engineering and sets the technical direction of every product.",
+    skills: ["Architecture", "Engineering", "Cloud"],
+    reports: [
+      {
+        name: "Tanvir Ahmed",
+        role: "Backend engineer",
+        bio: "Builds the databases, APIs and integrations behind every product.",
+        skills: ["Python", "PostgreSQL"],
+      },
+      {
+        name: "Sadia Karim",
+        role: "Frontend engineer",
+        bio: "Makes interfaces fast, accessible and pleasant to use.",
+        skills: ["React", "Next.js"],
+      },
+      {
+        name: "Rakib Hasan",
+        role: "Mobile engineer",
+        bio: "Ships iOS and Android apps from a single codebase.",
+        skills: ["Flutter", "Swift"],
+      },
+    ],
   },
 ];
 

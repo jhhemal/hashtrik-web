@@ -245,6 +245,85 @@
   }
 }
 
+/* Team tree. On phones it is an indented list with a guide line; on wide
+   screens it becomes a top-down tree with drawn connectors. */
+.tree-kids {
+  --tree: color-mix(in srgb, var(--accent) 38%, transparent);
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.75rem 0 0 1rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--tree);
+}
+
+.tree-kid {
+  position: relative;
+}
+
+.tree-kid::before {
+  content: "";
+  position: absolute;
+  left: -1.25rem;
+  top: 2.75rem;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--tree);
+}
+
+.tree-stem {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .tree-kids {
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .tree-kid {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 2rem 0.5rem 0;
+  }
+
+  .tree-kid::before {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 2rem;
+    transform: translateX(-1px);
+  }
+
+  .tree-kid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--tree);
+  }
+
+  .tree-kid:first-child::after {
+    left: 50%;
+  }
+
+  .tree-kid:last-child::after {
+    right: 50%;
+  }
+
+  .tree-stem {
+    display: block;
+    width: 2px;
+    height: 2rem;
+    margin-inline: auto;
+    background: color-mix(in srgb, var(--accent) 38%, transparent);
+  }
+}
+
 /* Scroll reveal. Only hides content when JavaScript is running. */
 html.js [data-reveal] {
   opacity: 0;

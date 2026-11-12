@@ -20,15 +20,15 @@ export function Header() {
             {site.name}
           </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
-            {nav.slice(0, 3).map((item) => {
+          <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">
+            {nav.map((item) => {
               const active = pathname.startsWith(item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-full px-4 py-1.5 font-medium transition-colors ${
+                  className={`rounded-full px-3.5 py-1.5 font-medium transition-colors ${
                     active ? "bg-tint text-accent" : "text-muted hover:bg-tint hover:text-ink"
                   }`}
                 >

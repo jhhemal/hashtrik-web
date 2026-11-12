@@ -2,60 +2,103 @@ import type { Metadata } from "next";
 import { Closing } from "@/components/Closing";
 import { Facts } from "@/components/Facts";
 import { PageIntro } from "@/components/PageIntro";
-import { principles, site, team } from "@/lib/site";
+import { Logo } from "@/components/Logo";
+import { founders, principles, site, type Founder, type Person } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Team",
-  description: "The designers and engineers behind Hashtrik.",
+  description: "Meet the Hashtrik team: co-founders Asmaul-Husna Rinvi and Jahidul Hasan, and the people who work with them.",
 };
 
 const washes = [
-  "bg-[linear-gradient(135deg,#3346ff,#4cc3ff)]",
   "bg-[linear-gradient(135deg,#8b6cff,#ff7ac3)]",
-  "bg-[linear-gradient(135deg,#ffb52e,#ff7a59)]",
   "bg-[linear-gradient(135deg,#17b890,#4cc3ff)]",
-  "bg-[linear-gradient(135deg,#ff7a59,#8b6cff)]",
+  "bg-[linear-gradient(135deg,#ffb52e,#ff7a59)]",
   "bg-[linear-gradient(135deg,#4cc3ff,#8b6cff)]",
+  "bg-[linear-gradient(135deg,#ff7a59,#8b6cff)]",
 ];
 
 function initials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("");
+  const parts = name.split(" ");
+  return parts[0][0] + parts[parts.length - 1][0];
+}
+
+function Skills({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-3 flex flex-wrap gap-1.5">
+      {items.map((skill) => (
+        <li key={skill} className="rounded-full bg-tint px-2.5 py-0.5 text-sm font-medium">
+          {skill}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function FounderCard({ person }: { person: Founder }) {
+  return (
+    <div className="card lift mx-auto flex items-start gap-5 p-5 shadow-[var(--shadow-lift)] lg:max-w-md lg:p-6">
+      <span className="grid size-16 shrink-0 place-items-center rounded-2xl bg-[linear-gradient(135deg,#3346ff,#8b6cff)] font-display text-2xl font-semibold text-white lg:size-20 lg:text-3xl">
+        {initials(person.name)}
+      </span>
+      <div>
+        <h2 className="text-2xl">{person.name}</h2>
+        <p className="mt-1 font-medium text-accent">{person.role}</p>
+        <p className="mt-2 text-muted">{person.bio}</p>
+        <Skills items={person.skills} />
+      </div>
+    </div>
+  );
+}
+
+function MemberCard({ person, wash }: { person: Person; wash: string }) {
+  return (
+    <div className="card lift flex h-full items-start gap-4 !rounded-3xl p-4 lg:block lg:p-5">
+      <span className={`grid size-12 shrink-0 place-items-center rounded-xl font-display text-lg font-semibold text-white ${wash}`}>
+        {initials(person.name)}
+      </span>
+      <div className="lg:mt-4">
+        <h3 className="text-xl">{person.name}</h3>
+        <p className="mt-0.5 font-medium text-accent">{person.role}</p>
+        <p className="mt-2 text-muted">{person.bio}</p>
+        <Skills items={person.skills} />
+      </div>
+    </div>
+  );
 }
 
 export default function Team() {
+  let member = 0;
   return (
     <>
-      <PageIntro title="Six people. You will know all of us by name.">
-        We stay small on purpose. The people you meet on the first call are the people who design and build your
-        product.
+      <PageIntro title="A small team. You will know all of us by name.">
+        Two co-founders lead the company, one on the business side and one on the technical side. Here is who does
+        what, and who you will be talking to.
       </PageIntro>
 
-      <section className="wrap pb-8 pt-8">
-        <ul className="grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
-          {team.map((person, i) => (
-            <li key={person.name} data-reveal style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
-              <div className="card lift group h-full p-3">
-                <div className={`grid aspect-[16/9] place-items-center overflow-hidden rounded-[1.25rem] ${washes[i % washes.length]}`}>
-                  <span className="font-display text-5xl font-semibold text-white/95 transition-transform duration-500 group-hover:scale-110 md:text-7xl">
-                    {initials(person.name)}
-                  </span>
-                </div>
-                <div className="p-3 pt-4 md:p-4 md:pt-5">
-                  <h2 className="text-xl md:text-2xl">{person.name}</h2>
-                  <p className="mt-1 font-medium text-accent">{person.role}</p>
-                  <p className="mt-3 text-muted">{person.bio}</p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
-                    {person.skills.map((skill) => (
-                      <li key={skill} className="rounded-full bg-tint px-3 py-1 text-sm font-medium">
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+      <section className="wrap pb-8 pt-8" aria-label="Team structure">
+        <div className="rise mx-auto flex w-fit items-center gap-2.5 rounded-full border border-line bg-surface py-2 pl-2 pr-5 font-display text-lg font-semibold shadow-[var(--shadow)] max-lg:ml-0">
+          <Logo className="size-8" />
+          {site.name}
+        </div>
+        <div className="tree-stem" />
+
+        <ul className="tree-kids">
+          {founders.map((founder, i) => (
+            <li
+              key={founder.name}
+              className="tree-kid rise"
+              style={{ flexGrow: founder.reports.length, animationDelay: `${0.2 + i * 0.15}s` }}
+            >
+              <FounderCard person={founder} />
+              <div className="tree-stem" />
+              <ul className="tree-kids">
+                {founder.reports.map((person) => (
+                  <li key={person.name} className="tree-kid">
+                    <MemberCard person={person} wash={washes[member++ % washes.length]} />
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
