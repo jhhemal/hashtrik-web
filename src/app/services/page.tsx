@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Closing } from "@/components/Closing";
 import { PageIntro } from "@/components/PageIntro";
-import { services, steps } from "@/lib/site";
+import { ServiceIcon } from "@/components/ServiceIcon";
+import { Steps } from "@/components/Steps";
+import { services } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -16,39 +18,28 @@ export default function Services() {
         starts.
       </PageIntro>
 
-      <section className="band">
-        <div className="frame divide-y divide-line">
-          {services.map((service) => (
-            <article key={service.slug} id={service.slug} className="grid scroll-mt-16 gap-6 px-5 py-12 md:px-8 lg:grid-cols-[1fr_1fr_1fr] lg:gap-10 lg:py-16">
-              <h2 className="type-section">{service.name}</h2>
-              <p className="text-xl text-muted">{service.summary}</p>
-              <ul className="divide-y divide-line border-y border-line">
-                {service.includes.map((item) => (
-                  <li key={item} className="py-2.5">
-                    {item}
-                  </li>
-                ))}
-              </ul>
+      <section className="wrap pb-8 pt-8">
+        <div className="grid gap-5 md:grid-cols-2">
+          {services.map((service, i) => (
+            <article key={service.slug} id={service.slug} className="scroll-mt-24" data-reveal style={{ transitionDelay: `${(i % 2) * 90}ms` }}>
+              <div className="card lift h-full p-7 md:p-9">
+                <ServiceIcon name={service.slug} />
+                <h2 className="mt-6 text-3xl">{service.name}</h2>
+                <p className="mt-3 text-lg text-muted">{service.summary}</p>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {service.includes.map((item) => (
+                    <li key={item} className="rounded-full bg-tint px-3.5 py-1.5 text-sm font-medium">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="band">
-        <div className="frame">
-          <h2 className="type-section px-5 pb-10 pt-16 md:px-8 md:pt-24">How a project runs</h2>
-          <ol className="divide-y divide-line border-t border-line">
-            {steps.map((step, i) => (
-              <li key={step.name} className="grid grid-cols-[3rem_1fr] gap-x-4 px-5 py-8 md:grid-cols-[6rem_1fr_2fr] md:px-8">
-                <span className="font-display text-4xl font-semibold text-accent">{i + 1}</span>
-                <h3 className="self-center text-2xl">{step.name}</h3>
-                <p className="col-start-2 mt-2 max-w-xl text-muted md:col-start-3 md:mt-0 md:self-center">{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
+      <Steps />
       <Closing />
     </>
   );

@@ -18,7 +18,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Switch between light and dark theme"
-      className="grid size-10 place-items-center text-ink transition-colors hover:text-accent"
+      className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:bg-tint hover:text-accent"
     >
       <svg viewBox="0 0 24 24" className="moon size-5" fill="currentColor" aria-hidden="true">
         <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />

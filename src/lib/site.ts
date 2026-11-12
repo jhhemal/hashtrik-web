@@ -96,3 +96,8 @@ export const principles = [
   { name: "Fixed scope, fixed price", text: "You know the cost before we start. If the scope changes, we agree the new price first." },
   { name: "You own everything", text: "Code, designs and accounts are yours from day one. Leaving us is always easy." },
 ];
+
+export const tools = [
+  "Next.js", "React", "TypeScript", "Flutter", "Swift", "Kotlin",
+  "Node.js", "Python", "PostgreSQL", "AWS", "Docker", "Figma",
+];
