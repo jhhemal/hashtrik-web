@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { AppMock } from "@/components/AppMock";
+import { Check } from "@/components/Check";
 import { Closing } from "@/components/Closing";
+import { Engagements } from "@/components/Engagements";
+import { Facts } from "@/components/Facts";
+import { Faq } from "@/components/Faq";
+import { Industries } from "@/components/Industries";
 import { ProductMock } from "@/components/ProductMock";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { Steps } from "@/components/Steps";
@@ -48,6 +53,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Facts />
+
       <section className="section">
         <div className="wrap">
           <div className="flex flex-wrap items-end justify-between gap-5" data-reveal>
@@ -66,12 +73,22 @@ export default function Home() {
                   <ServiceIcon name={service.slug} />
                   <h3 className="mt-6 text-2xl">{service.name}</h3>
                   <p className="mt-2 text-muted">{service.summary}</p>
+                  <ul className="mt-5 space-y-2.5 border-t border-line pt-5">
+                    {service.includes.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <Check />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
       </section>
+
+      <Industries />
 
       <Steps />
 
@@ -91,6 +108,10 @@ export default function Home() {
                   <div className="p-4 pt-5">
                     <h3 className="text-2xl">{product.name}</h3>
                     <p className="mt-2 text-muted">{product.summary}</p>
+                    <p className="mt-4 text-sm">
+                      <span className="text-muted">Made for </span>
+                      <span className="font-medium">{product.audience.toLowerCase()}</span>
+                    </p>
                   </div>
                 </Link>
               </li>
@@ -99,6 +120,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Engagements />
+      <Faq limit={4} />
       <Closing />
     </>
   );

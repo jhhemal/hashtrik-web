@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Closing } from "@/components/Closing";
+import { Facts } from "@/components/Facts";
 import { PageIntro } from "@/components/PageIntro";
 import { principles, site, team } from "@/lib/site";
 
@@ -33,18 +34,26 @@ export default function Team() {
       </PageIntro>
 
       <section className="wrap pb-8 pt-8">
-        <ul className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-3">
+        <ul className="grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
           {team.map((person, i) => (
             <li key={person.name} data-reveal style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
               <div className="card lift group h-full p-3">
-                <div className={`grid aspect-[4/3] place-items-center overflow-hidden rounded-[1.25rem] ${washes[i % washes.length]}`}>
+                <div className={`grid aspect-[16/9] place-items-center overflow-hidden rounded-[1.25rem] ${washes[i % washes.length]}`}>
                   <span className="font-display text-5xl font-semibold text-white/95 transition-transform duration-500 group-hover:scale-110 md:text-7xl">
                     {initials(person.name)}
                   </span>
                 </div>
                 <div className="p-3 pt-4 md:p-4 md:pt-5">
                   <h2 className="text-xl md:text-2xl">{person.name}</h2>
-                  <p className="mt-1 text-muted">{person.role}</p>
+                  <p className="mt-1 font-medium text-accent">{person.role}</p>
+                  <p className="mt-3 text-muted">{person.bio}</p>
+                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                    {person.skills.map((skill) => (
+                      <li key={skill} className="rounded-full bg-tint px-3 py-1 text-sm font-medium">
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </li>
@@ -52,14 +61,16 @@ export default function Team() {
         </ul>
       </section>
 
+      <Facts />
+
       <section className="section">
         <div className="wrap">
           <h2 className="type-section text-center" data-reveal>
             How we work with you
           </h2>
-          <ul className="mt-12 grid gap-5 md:grid-cols-3">
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {principles.map((item, i) => (
-              <li key={item.name} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+              <li key={item.name} data-reveal style={{ transitionDelay: `${(i % 3) * 90}ms` }}>
                 <div className="card lift h-full p-7">
                   <h3 className="text-2xl">{item.name}</h3>
                   <p className="mt-3 text-muted">{item.text}</p>

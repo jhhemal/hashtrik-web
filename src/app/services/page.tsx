@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Closing } from "@/components/Closing";
+import { Engagements } from "@/components/Engagements";
+import { Faq } from "@/components/Faq";
+import { Stack } from "@/components/Stack";
 import { PageIntro } from "@/components/PageIntro";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { Steps } from "@/components/Steps";
@@ -33,6 +36,22 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <dl className="mt-7 space-y-4 border-t border-line pt-6">
+                  <div>
+                    <dt className="text-sm text-muted">Good for</dt>
+                    <dd className="mt-0.5">{service.goodFor}</dd>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <dt className="text-sm text-muted">Typical length</dt>
+                      <dd className="mt-0.5 font-medium">{service.timeline}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-sm text-muted">We use</dt>
+                      <dd className="mt-0.5 font-medium">{service.tools.join(", ")}</dd>
+                    </div>
+                  </div>
+                </dl>
               </div>
             </article>
           ))}
@@ -40,6 +59,9 @@ export default function Services() {
       </section>
 
       <Steps />
+      <Engagements />
+      <Stack />
+      <Faq />
       <Closing />
     </>
   );
