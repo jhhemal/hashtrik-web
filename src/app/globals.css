@@ -1,26 +1,229 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --ink: #141b34;
+  --muted: #56607f;
+  --line: #d5dbec;
+  --accent: #3346ff;
+  --on-accent: #ffffff;
+  --spark: #ffb52e;
+  --show-sun: none;
+  --show-moon: block;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --bg: #0c1024;
+    --surface: #141a36;
+    --ink: #e8ebf7;
+    --muted: #9aa3c4;
+    --line: #252c4a;
+    --accent: #8490ff;
+    --on-accent: #0c1024;
+    --show-sun: block;
+    --show-moon: none;
+    color-scheme: dark;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root[data-theme="dark"] {
+  --bg: #0c1024;
+  --surface: #141a36;
+  --ink: #e8ebf7;
+  --muted: #9aa3c4;
+  --line: #252c4a;
+  --accent: #8490ff;
+  --on-accent: #0c1024;
+  --show-sun: block;
+  --show-moon: none;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-spark: var(--spark);
+  --font-sans: var(--ff-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--ff-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--ff-body), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--ff-display), ui-sans-serif, system-ui, sans-serif;
+    font-variation-settings: "wdth" 88;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--spark);
+    color: #141b34;
+  }
+}
+
+@layer components {
+  /* The two long vertical strokes of the "#". Every band of the page sits
+     inside a frame, so the strokes run unbroken from header to footer. */
+  .frame {
+    margin-inline: 1rem;
+    border-inline: 1px solid var(--line);
+  }
+
+  @media (min-width: 82rem) {
+    .frame {
+      margin-inline: auto;
+      max-width: 78rem;
+    }
+  }
+
+  /* The horizontal strokes: full-bleed, so they cross the verticals. */
+  .band {
+    border-top: 1px solid var(--line);
+  }
+
+  .type-hero {
+    font-size: clamp(2.75rem, 6.2vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.012em;
+  }
+
+  .type-title {
+    font-size: clamp(2.25rem, 4.6vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.012em;
+  }
+
+  .type-section {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.4rem;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 600;
+    transition: background-color 0.15s, color 0.15s;
+  }
+
+  .button:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .field {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .field::placeholder {
+    color: var(--muted);
+  }
+
+  .field:focus {
+    border-color: var(--accent);
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+  }
+
+  .sun {
+    display: var(--show-sun);
+  }
+
+  .moon {
+    display: var(--show-moon);
+  }
+}
+
+/* The one page-load moment: the hero's grid lines draw themselves into a "#",
+   then the content settles in. */
+.draw {
+  position: relative;
+}
+
+.draw::before,
+.draw::after {
+  content: "";
+  position: absolute;
+  background: var(--line);
+  pointer-events: none;
+}
+
+.draw::before {
+  inset: 0 0 auto 0;
+  height: 1px;
+  transform-origin: left;
+  animation: draw-x 0.9s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+
+.draw::after {
+  inset: 0 auto 0 -1px;
+  width: 1px;
+  transform-origin: top;
+  animation: draw-y 0.9s cubic-bezier(0.7, 0, 0.2, 1) 0.15s both;
+}
+
+.settle {
+  animation: settle 0.7s ease-out 0.55s both;
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw::before,
+  .draw::after,
+  .settle {
+    animation: none;
+  }
 }
