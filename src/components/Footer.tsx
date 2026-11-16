@@ -40,7 +40,7 @@ export function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-[0.16em] right-[-0.04em] select-none bg-[linear-gradient(to_bottom,var(--accent),transparent_95%)] bg-clip-text font-display text-[5rem] font-semibold leading-none tracking-tighter text-transparent opacity-20 sm:text-[7rem] lg:text-[9rem]"
       >
-        {site.name}
+        #{site.name}
       </p>
 
       <div className="wrap relative">
