@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
+import { Location } from "@/components/Location";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -73,6 +74,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <Location />
       <Faq />
     </>
   );

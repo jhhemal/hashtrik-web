@@ -17,6 +17,7 @@
   --shadow-lift: 0 2px 4px rgba(20, 27, 52, 0.05), 0 28px 56px -20px rgba(51, 70, 255, 0.35);
   --show-sun: none;
   --show-moon: block;
+  --map-filter: none;
   color-scheme: light;
 }
 
@@ -35,6 +36,7 @@
     --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.3), 0 28px 60px -20px rgba(104, 120, 255, 0.4);
     --show-sun: block;
     --show-moon: none;
+    --map-filter: invert(0.92) hue-rotate(180deg) saturate(0.8) brightness(0.95);
     color-scheme: dark;
   }
 }
@@ -53,6 +55,7 @@
   --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.3), 0 28px 60px -20px rgba(104, 120, 255, 0.4);
   --show-sun: block;
   --show-moon: none;
+  --map-filter: invert(0.92) hue-rotate(180deg) saturate(0.8) brightness(0.95);
   color-scheme: dark;
 }
 
@@ -324,6 +327,40 @@
   }
 }
 
+/* Lit connectors: the path from the top of the tree to the person being
+   hovered or selected. */
+.tree-kids,
+.tree-kid::before,
+.tree-kid::after,
+.tree-stem {
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.tree-kids.lit {
+  border-color: var(--accent);
+}
+
+.tree-kids.lit > .tree-kid::after,
+.tree-kid.on::before,
+.tree-stem.on {
+  background: var(--accent);
+}
+
+.flow {
+  stroke-dasharray: 5 7;
+  animation: flow 1.4s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.map-frame {
+  filter: var(--map-filter);
+}
+
 /* Scroll reveal. Only hides content when JavaScript is running. */
 html.js [data-reveal] {
   opacity: 0;
@@ -417,6 +454,7 @@ html.js [data-reveal].in {
     transition: none;
   }
 
+  .flow,
   .rise,
   .float,
   .grow,

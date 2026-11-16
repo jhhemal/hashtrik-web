@@ -1,13 +1,23 @@
 // All the words on the site live here. Replace the placeholder
-// services, products, team members, facts and contact details with real ones.
+// services, products, team members and facts with real ones.
 
 export const site = {
   name: "Hashtrik",
+  url: "https://hashtrik.com",
   email: "hello@hashtrik.com",
-  hours: "Sunday to Thursday, 10am to 7pm",
+  hours: "Monday to Friday, 9am to 6pm ET",
+  address: {
+    street: "722 W 3rd St",
+    city: "Lansdale",
+    state: "PA",
+    zip: "19446",
+    country: "US",
+  },
   description:
-    "Hashtrik is a software agency. We design and build web apps, mobile apps and AI tools for growing businesses.",
+    "Hashtrik is a software company headquartered in Lansdale, Pennsylvania. We design and build web apps, mobile apps and AI tools, and we are the team behind Oikko.",
 };
+
+export const addressLine = `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`;
 
 export const nav = [
   { href: "/services", label: "Services" },
@@ -176,6 +186,30 @@ export const faqs = [
   },
 ];
 
+// Oikko: the flagship product. Wording here is a first draft from a short
+// brief, so check it against the real plan before launch.
+export const oikko = {
+  name: "Oikko",
+  status: "Launching soon",
+  tagline: "Your IT team on a monthly subscription, and a network of businesses to grow with.",
+  summary:
+    "Oikko is a platform that connects businesses with each other. Every member also gets Hashtrik as their technology team: we build and look after your website, apps and tools for one monthly fee instead of a large upfront project cost.",
+  steps: [
+    { name: "Subscribe", text: "Pick a monthly plan. No big upfront project fee and no long contract." },
+    { name: "We build and run your tech", text: "Hashtrik designs, builds and maintains your website, app and internal tools." },
+    { name: "Connect with other businesses", text: "Your business gets a profile on Oikko, where members find partners, suppliers and customers." },
+  ],
+  points: [
+    "Website and apps built by Hashtrik",
+    "Hosting, updates and support included",
+    "One predictable monthly fee",
+    "A business profile in the Oikko network",
+    "Find partners, suppliers and customers",
+    "One place to send requests and track progress",
+  ],
+  network: ["Retail shop", "Clinic", "Restaurant", "Logistics", "Accounting", "Wholesaler"],
+};
+
 export const products = [
   {
     name: "Trikdesk",
@@ -223,26 +257,46 @@ export const products = [
 
 // The team tree: two co-founders, each with the people who report to them.
 // The founders are real; the five people under them are placeholders.
-export type Person = { name: string; role: string; bio: string; skills: string[] };
+export type Person = {
+  name: string;
+  role: string;
+  area: "Leadership" | "Design" | "Delivery" | "Engineering";
+  bio: string;
+  detail: string;
+  askAbout: string[];
+  skills: string[];
+};
 export type Founder = Person & { reports: Person[] };
 
 export const founders: Founder[] = [
   {
     name: "Asmaul-Husna Rinvi",
     role: "CEO and co-founder",
+    area: "Leadership",
     bio: "Leads the company, client relationships and product direction.",
+    detail:
+      "Sets where Hashtrik and Oikko are heading and is the first person most new clients speak to. Stays involved in every project at the planning stage.",
+    askAbout: ["Working with Hashtrik", "Oikko membership", "Partnerships"],
     skills: ["Strategy", "Clients", "Product"],
     reports: [
       {
         name: "Nadia Islam",
         role: "Head of design",
+        area: "Design",
         bio: "Turns rough ideas into prototypes people can click through.",
+        detail:
+          "Runs research and design. Before any code is written you get a clickable prototype from Nadia's team that you can test with real users.",
+        askAbout: ["Prototypes", "User research", "Brand and interface"],
         skills: ["Research", "Figma"],
       },
       {
         name: "Mitu Chowdhury",
         role: "Project manager",
+        area: "Delivery",
         bio: "Keeps scope, dates and budget honest, and is your day-to-day contact.",
+        detail:
+          "Your main contact once a project starts. Sends a plain-language update every week and flags anything that could move the date or the price.",
+        askAbout: ["Timelines", "Scope changes", "Weekly updates"],
         skills: ["Planning", "Delivery"],
       },
     ],
@@ -250,29 +304,52 @@ export const founders: Founder[] = [
   {
     name: "Jahidul Hasan",
     role: "CTO and co-founder",
+    area: "Leadership",
     bio: "Leads engineering and sets the technical direction of every product.",
+    detail:
+      "Decides how each product is built and reviews its architecture, security and hosting. Leads the engineering behind Oikko.",
+    askAbout: ["Technical approach", "Security and hosting", "Taking over existing code"],
     skills: ["Architecture", "Engineering", "Cloud"],
     reports: [
       {
         name: "Tanvir Ahmed",
         role: "Backend engineer",
+        area: "Engineering",
         bio: "Builds the databases, APIs and integrations behind every product.",
+        detail:
+          "Builds the parts you never see: data, logins, payments and the connections to other systems your business already uses.",
+        askAbout: ["Integrations", "Data and reports", "Payments"],
         skills: ["Python", "PostgreSQL"],
       },
       {
         name: "Sadia Karim",
         role: "Frontend engineer",
+        area: "Engineering",
         bio: "Makes interfaces fast, accessible and pleasant to use.",
+        detail:
+          "Turns designs into the screens people use, and makes sure they load quickly and work for everyone, on every device.",
+        askAbout: ["Websites", "Dashboards", "Accessibility"],
         skills: ["React", "Next.js"],
       },
       {
         name: "Rakib Hasan",
         role: "Mobile engineer",
+        area: "Engineering",
         bio: "Ships iOS and Android apps from a single codebase.",
+        detail:
+          "Builds the mobile apps and handles the App Store and Google Play releases, including the review process.",
+        askAbout: ["iOS and Android apps", "App store release", "Offline use"],
         skills: ["Flutter", "Swift"],
       },
     ],
   },
+];
+
+export const company = [
+  { label: "Headquarters", value: "Lansdale, Pennsylvania" },
+  { label: "Led by", value: "Asmaul-Husna Rinvi and Jahidul Hasan" },
+  { label: "What we do", value: "Web apps, mobile apps, AI tools and ongoing care" },
+  { label: "Our platform", value: "Oikko, launching soon" },
 ];
 
 export const principles = [

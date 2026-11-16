@@ -37,7 +37,7 @@ export function ContactForm() {
             What do you need?
           </label>
           <select id="type" name="type" className="field mt-2" defaultValue="Web application">
-            {["Web application", "Mobile app", "AI and automation", "Product design", "Cloud and DevOps", "Care and support", "Not sure yet"].map((option) => (
+            {["Web application", "Mobile app", "AI and automation", "Product design", "Cloud and DevOps", "Care and support", "Oikko subscription", "Not sure yet"].map((option) => (
               <option key={option}>{option}</option>
             ))}
           </select>

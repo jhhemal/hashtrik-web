@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { About } from "@/components/About";
 import { AppMock } from "@/components/AppMock";
 import { Check } from "@/components/Check";
 import { Closing } from "@/components/Closing";
@@ -6,6 +7,7 @@ import { Engagements } from "@/components/Engagements";
 import { Facts } from "@/components/Facts";
 import { Faq } from "@/components/Faq";
 import { Industries } from "@/components/Industries";
+import { OikkoSpotlight } from "@/components/OikkoSpotlight";
 import { ProductMock } from "@/components/ProductMock";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { Steps } from "@/components/Steps";
@@ -16,15 +18,18 @@ export default function Home() {
     <>
       <section className="relative">
         <div className="wrap pb-16 pt-16 text-center md:pt-24">
-          <p className="rise inline-flex items-center gap-2.5 rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-medium shadow-[var(--shadow)]">
-            <span className="pulse size-2 rounded-full bg-emerald-500" />
-            Web, mobile and AI from one small team
-          </p>
+          <Link
+            href="/products#oikko"
+            className="rise inline-flex items-center gap-2.5 rounded-full border border-line bg-surface py-1.5 pl-1.5 pr-4 text-sm font-medium shadow-[var(--shadow)] transition-colors hover:border-accent"
+          >
+            <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold text-on-accent">New</span>
+            Oikko, our business platform, is launching soon
+          </Link>
           <h1 className="type-hero rise mx-auto mt-7 max-w-4xl" style={{ animationDelay: "0.08s" }}>
             We turn rough ideas into working software.
           </h1>
           <p className="rise mx-auto mt-6 max-w-2xl text-xl text-muted" style={{ animationDelay: "0.16s" }}>
-            Hashtrik designs, builds and looks after web apps, mobile apps and AI tools for growing businesses.
+            Hashtrik designs, builds and looks after web apps, mobile apps and AI tools for growing businesses, from our headquarters in Lansdale, Pennsylvania.
           </p>
           <div className="rise mt-9 flex flex-wrap justify-center gap-3" style={{ animationDelay: "0.24s" }}>
             <Link href="/contact" className="button text-lg">
@@ -54,6 +59,7 @@ export default function Home() {
       </section>
 
       <Facts />
+      <OikkoSpotlight />
 
       <section className="section">
         <div className="wrap">
@@ -95,7 +101,7 @@ export default function Home() {
       <section className="section !pt-0">
         <div className="wrap">
           <div className="mx-auto max-w-2xl text-center" data-reveal>
-            <h2 className="type-section">Products we run ourselves</h2>
+            <h2 className="type-section">More products we run ourselves</h2>
             <p className="mt-4 text-lg text-muted">
               We build and operate our own software too, so we know what it takes to keep a product alive after launch.
             </p>
@@ -120,6 +126,7 @@ export default function Home() {
         </div>
       </section>
 
+      <About />
       <Engagements />
       <Faq limit={4} />
       <Closing />

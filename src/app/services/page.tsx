@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Closing } from "@/components/Closing";
 import { Engagements } from "@/components/Engagements";
 import { Faq } from "@/components/Faq";
@@ -60,6 +61,22 @@ export default function Services() {
 
       <Steps />
       <Engagements />
+
+      <section className="wrap pb-20" data-reveal>
+        <div className="flex flex-col items-start gap-5 rounded-[1.75rem] bg-tint p-7 md:flex-row md:items-center md:justify-between md:p-9">
+          <div className="max-w-2xl">
+            <h2 className="text-2xl">Prefer one monthly subscription?</h2>
+            <p className="mt-2 text-muted">
+              With Oikko, launching soon, Hashtrik builds and runs your website and apps for a monthly fee, and your
+              business joins a network of other members.
+            </p>
+          </div>
+          <Link href="/products#oikko" className="button shrink-0">
+            See Oikko
+          </Link>
+        </div>
+      </section>
+
       <Stack />
       <Faq />
       <Closing />

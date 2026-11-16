@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Closing } from "@/components/Closing";
+import { OikkoSpotlight } from "@/components/OikkoSpotlight";
 import { PageIntro } from "@/components/PageIntro";
 import { ProductMock } from "@/components/ProductMock";
 import { products } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Software Hashtrik builds and runs itself: Trikdesk, Trikforms and Trikbooks.",
+  description: "Oikko, the business platform from Hashtrik, plus Trikdesk, Trikforms and Trikbooks.",
 };
 
 const statusDot: Record<string, string> = {
@@ -20,11 +21,16 @@ export default function Products() {
   return (
     <>
       <PageIntro title="Software we build and run ourselves.">
-        Alongside client work we keep a few products of our own. They are where we try new ideas first and learn what
-        running software really costs.
+        Alongside client work we build products of our own. The newest is Oikko, a platform that connects businesses
+        and gives each one a technology team on subscription.
       </PageIntro>
 
-      <section className="wrap space-y-6 pb-16 pt-8">
+      <OikkoSpotlight full />
+
+      <section className="wrap space-y-6 pb-16 pt-20">
+        <h2 className="type-section text-center" data-reveal>
+          More from Hashtrik
+        </h2>
         {products.map((product, i) => (
           <article key={product.name} data-reveal>
             <div className="card lift group grid items-center gap-6 p-4 md:grid-cols-2 md:gap-10 md:p-5">
