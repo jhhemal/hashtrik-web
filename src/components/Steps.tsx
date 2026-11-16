@@ -2,7 +2,7 @@ import { steps } from "@/lib/site";
 
 export function Steps() {
   return (
-    <section className="section">
+    <section id="process" className="section scroll-mt-10">
       <div className="wrap">
         <div className="mx-auto max-w-2xl text-center" data-reveal>
           <h2 className="type-section">How a project runs</h2>

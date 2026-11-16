@@ -35,7 +35,7 @@ export default function Products() {
           More from Hashtrik
         </h2>
         {products.map((product, i) => (
-          <article key={product.name} data-reveal>
+          <article key={product.name} id={product.name.toLowerCase()} className="scroll-mt-24" data-reveal>
             <div className="card lift group grid items-center gap-6 p-4 md:grid-cols-2 md:gap-10 md:p-5">
               <div className={i % 2 ? "md:order-last" : ""}>
                 <ProductMock name={product.name} />

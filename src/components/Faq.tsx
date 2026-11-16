@@ -3,7 +3,7 @@ import { faqs } from "@/lib/site";
 export function Faq({ limit }: { limit?: number }) {
   const items = limit ? faqs.slice(0, limit) : faqs;
   return (
-    <section className="section !pt-0">
+    <section id="questions" className="section scroll-mt-24 !pt-0">
       <div className="wrap grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-14">
         <div data-reveal>
           <h2 className="type-section">Questions people ask first</h2>
