@@ -33,9 +33,10 @@ export default function Image() {
               justifyContent: "center",
             }}
           >
-            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#3346ff" strokeWidth="2.6" strokeLinecap="round">
-              <path d="M9.5 4l-2 16M16.5 4l-2 16M4.5 9h16M3.5 15h16" />
-            </svg>
+            <svg width="58" height="58" viewBox="0 0 64 64">
+          <path d="M21 8v48M43 8v48M8 21h48M8 43h48" fill="none" stroke="#141b34" strokeWidth="6" strokeLinecap="round" />
+          <rect x="26.5" y="26.5" width="11" height="11" rx="2.5" fill="#3346ff" />
+        </svg>
           </div>
           <div style={{ fontSize: 46, fontWeight: 700 }}>Hashtrik</div>
         </div>
