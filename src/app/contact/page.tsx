@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ContactForm } from "@/components/ContactForm";
 import { Faq } from "@/components/Faq";
 import { Location } from "@/components/Location";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Contact",
   description:
-    "Tell Hashtrik what you want to build. We reply within one working day.",
-};
+    "Contact Hashtrik at 722 W 3rd St, Lansdale, PA 19446. Tell us what you want to build and we reply within one working day.",
+  path: "/contact",
+});
 
 const next = [
   "We read your note and reply within one working day.",

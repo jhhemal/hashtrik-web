@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { Closing } from "@/components/Closing";
 import { Engagements } from "@/components/Engagements";
@@ -9,10 +10,12 @@ import { ServiceIcon } from "@/components/ServiceIcon";
 import { Steps } from "@/components/Steps";
 import { services } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Services",
-  description: "Web applications, mobile apps, AI and automation, product design, cloud and ongoing support.",
-};
+  description:
+    "Web applications, mobile apps, AI and automation, product design, cloud and ongoing care from Hashtrik, with a fixed plan and price before work starts.",
+  path: "/services",
+});
 
 export default function Services() {
   return (

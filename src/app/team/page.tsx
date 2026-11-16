@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Closing } from "@/components/Closing";
 import { Facts } from "@/components/Facts";
 import { PageIntro } from "@/components/PageIntro";
 import { TeamTree } from "@/components/TeamTree";
 import { principles, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Team",
-  description: "Meet the Hashtrik team: co-founders Asmaul-Husna Rinvi and Jahidul Hasan, and the people who work with them.",
-};
+  description:
+    "Meet the Hashtrik team: co-founders Asmaul-Husna Rinvi (CEO) and Jahidul Hasan (CTO), and the designers and engineers who work with them.",
+  path: "/team",
+});
 
 export default function Team() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { About } from "@/components/About";
 import { AppMock } from "@/components/AppMock";
@@ -11,7 +12,15 @@ import { OikkoSpotlight } from "@/components/OikkoSpotlight";
 import { ProductMock } from "@/components/ProductMock";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { Steps } from "@/components/Steps";
+import { pageMeta } from "@/lib/seo";
 import { products, services, tools } from "@/lib/site";
+
+export const metadata: Metadata = pageMeta({
+  title: "Hashtrik | Software company in Lansdale, PA",
+  description:
+    "Hashtrik designs, builds and looks after web apps, mobile apps and AI tools for growing businesses. Headquartered in Lansdale, Pennsylvania, and the team behind Oikko.",
+  path: "/",
+});
 
 export default function Home() {
   return (

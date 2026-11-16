@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { Closing } from "@/components/Closing";
 import { OikkoSpotlight } from "@/components/OikkoSpotlight";
@@ -6,10 +7,12 @@ import { PageIntro } from "@/components/PageIntro";
 import { ProductMock } from "@/components/ProductMock";
 import { products } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Products",
-  description: "Oikko, the business platform from Hashtrik, plus Trikdesk, Trikforms and Trikbooks.",
-};
+  description:
+    "Oikko, the platform from Hashtrik that connects businesses and gives each one an IT team on a monthly subscription, plus Trikdesk, Trikforms and Trikbooks.",
+  path: "/products",
+});
 
 const statusDot: Record<string, string> = {
   Live: "bg-emerald-500",
