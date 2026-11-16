@@ -46,9 +46,8 @@ export function Footer() {
       <div className="wrap relative">
         <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_2.5fr] lg:gap-16">
           <div>
-            <Link href="/" className="flex items-center gap-3 font-display text-2xl font-semibold tracking-tight">
-              <Logo className="size-10" />
-              {site.name}
+            <Link href="/" className="flex w-fit items-center">
+              <Logo className="h-9" />
             </Link>
             <p className="mt-5 max-w-sm text-muted">
               A software company. We design, build and look after web apps, mobile apps and AI tools, and we are the

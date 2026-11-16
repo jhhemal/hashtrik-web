@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { nav, site } from "@/lib/site";
+import { nav } from "@/lib/site";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -15,9 +15,8 @@ export function Header() {
     <header className="sticky top-3 z-50 px-3">
       <div className="mx-auto max-w-5xl rounded-[1.75rem] border border-line bg-surface/75 shadow-[var(--shadow)] backdrop-blur-xl">
         <div className="flex h-14 items-center justify-between pl-3 pr-2">
-          <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight">
-            <Logo className="size-8" />
-            {site.name}
+          <Link href="/" onClick={() => setOpen(false)} className="flex items-center">
+            <Logo className="h-7" />
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">

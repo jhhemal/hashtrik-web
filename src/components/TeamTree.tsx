@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { founders, site, type Person } from "@/lib/site";
+import { founders, type Person } from "@/lib/site";
 import { Logo } from "./Logo";
 
 const areas = ["Everyone", "Leadership", "Design", "Delivery", "Engineering"] as const;
@@ -81,9 +81,8 @@ export function TeamTree() {
       </div>
 
       <div className="mt-10">
-        <div className="rise flex w-fit items-center gap-2.5 rounded-full border border-line bg-surface py-2 pl-2 pr-5 font-display text-lg font-semibold shadow-[var(--shadow)] lg:mx-auto">
-          <Logo className="size-8" />
-          {site.name}
+        <div className="rise flex w-fit items-center gap-2.5 rounded-full border border-line bg-surface px-5 py-2.5 shadow-[var(--shadow)] lg:mx-auto">
+          <Logo className="h-7" />
         </div>
         <div className={`tree-stem ${active ? "on" : ""}`} />
 

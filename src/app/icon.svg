@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <style>
-    .bars { stroke: #141b34 }
-    .cell { fill: #3346ff }
-    @media (prefers-color-scheme: dark) {
-      .bars { stroke: #eceef8 }
-      .cell { fill: #8490ff }
-    }
-  </style>
-  <path class="bars" d="M21 7v50M43 7v50M7 21h50M7 43h50" fill="none" stroke-width="7" stroke-linecap="round"/>
-  <rect class="cell" x="26" y="26" width="12" height="12" rx="2.5"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 2 60 60" width="240" height="240" role="img" aria-label="Hashtrik"><g fill="none" stroke-width="8" stroke-linecap="round"><path d="M24 8v5M24 35v21M40 8v21M40 51v5" stroke="#4a5cff"/><path d="M8 24h21M51 24h5M8 40h5M35 40h21" stroke="#e8472b"/></g></svg>
