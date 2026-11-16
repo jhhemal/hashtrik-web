@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { hashLevel, hashStroke, hashUpright, lockupAspect, lockupHashScale, lockupViewBox, wordHash, wordTrik } from "@/lib/logo";
 
 // The preview picture shown when a link to the site is shared.
 export const alt = "Hashtrik: we turn rough ideas into working software";
@@ -21,24 +22,15 @@ export default function Image() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-          <div
-            style={{
-              width: 84,
-              height: 84,
-              borderRadius: 24,
-              background: "#ffffff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#3346ff" strokeWidth="2.6" strokeLinecap="round">
-              <path d="M9.5 4l-2 16M16.5 4l-2 16M4.5 9h16M3.5 15h16" />
-            </svg>
-          </div>
-          <div style={{ fontSize: 46, fontWeight: 700 }}>Hashtrik</div>
-        </div>
+        {/* The logo in white: blue and coral would get lost on this background. */}
+        <svg width={Math.round(84 * lockupAspect)} height="84" viewBox={lockupViewBox}>
+          <g transform={`scale(${lockupHashScale})`} fill="none" stroke="#ffffff" strokeWidth={hashStroke} strokeLinecap="round">
+            <path d={hashUpright} />
+            <path d={hashLevel} />
+          </g>
+          <path d={wordHash} fill="#ffffff" />
+          <path d={wordTrik} fill="#ffffff" />
+        </svg>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 82, fontWeight: 700, lineHeight: 1.05, letterSpacing: -2.5, maxWidth: 980 }}>

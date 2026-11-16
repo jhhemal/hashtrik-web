@@ -1,9 +1,44 @@
+import {
+  hashLevel,
+  hashStroke,
+  hashUpright,
+  lockupHashScale,
+  lockupViewBox,
+  logoBlue,
+  logoCoral,
+  symbolViewBox,
+  wordHash,
+  wordTrik,
+} from "@/lib/logo";
+
+function Hash({ upright, level }: { upright: string; level: string }) {
+  return (
+    <g fill="none" strokeWidth={hashStroke} strokeLinecap="round">
+      <path d={hashUpright} stroke={upright} />
+      <path d={hashLevel} stroke={level} />
+    </g>
+  );
+}
+
+// The full logo: woven hash and the word. Size it by height, e.g. className="h-7".
+// The same colours are used in the light and the dark theme.
 export function Logo({ className }: { className?: string }) {
   return (
-    <span className={`grid place-items-center rounded-xl bg-accent text-on-accent ${className ?? ""}`} aria-hidden="true">
-      <svg viewBox="0 0 24 24" className="size-[62%]" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round">
-        <path d="M9.5 4l-2 16M16.5 4l-2 16M4.5 9h16M3.5 15h16" />
-      </svg>
-    </span>
+    <svg viewBox={lockupViewBox} className={`w-auto ${className ?? ""}`} role="img" aria-label="Hashtrik">
+      <g transform={`scale(${lockupHashScale})`}>
+        <Hash upright={logoBlue} level={logoCoral} />
+      </g>
+      <path d={wordHash} fill={logoBlue} />
+      <path d={wordTrik} fill={logoCoral} />
+    </svg>
+  );
+}
+
+// The hash on its own, for tight spaces.
+export function LogoSymbol({ className }: { className?: string }) {
+  return (
+    <svg viewBox={symbolViewBox} className={className} aria-hidden="true">
+      <Hash upright={logoBlue} level={logoCoral} />
+    </svg>
   );
 }
