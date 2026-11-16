@@ -34,6 +34,15 @@ export function Footer() {
       <div className="glow -bottom-40 left-[10%] size-96 bg-accent" />
       <div className="glow -bottom-52 right-[5%] size-96 bg-violet" style={{ animationDelay: "-7s" }} />
 
+      {/* Watermark: sits behind the footer content in the bottom-right corner
+          and takes up no space of its own. */}
+      <p
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[0.16em] right-[-0.04em] select-none bg-[linear-gradient(to_bottom,var(--accent),transparent_95%)] bg-clip-text font-display text-[9rem] font-semibold leading-none tracking-tighter text-transparent opacity-20 sm:text-[13rem] lg:text-[17rem]"
+      >
+        {site.name}
+      </p>
+
       <div className="wrap relative">
         <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_2.5fr] lg:gap-16">
           <div>
@@ -109,13 +118,6 @@ export function Footer() {
             ))}
           </nav>
         </div>
-
-        <p
-          aria-hidden="true"
-          className="pointer-events-none select-none bg-[linear-gradient(to_bottom,var(--accent),transparent_92%)] bg-clip-text text-center font-display text-[21vw] font-semibold leading-[0.8] tracking-tighter text-transparent opacity-25 lg:text-[15.5rem]"
-        >
-          {site.name}
-        </p>
 
         <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-line py-6 text-sm text-muted">
           <p>© 2026 {site.name}. All rights reserved.</p>
