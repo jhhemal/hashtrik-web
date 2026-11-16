@@ -38,7 +38,7 @@ export function Footer() {
           and takes up no space of its own. */}
       <p
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[0.16em] right-[-0.04em] select-none bg-[linear-gradient(to_bottom,var(--accent),transparent_95%)] bg-clip-text font-display text-[9rem] font-semibold leading-none tracking-tighter text-transparent opacity-20 sm:text-[13rem] lg:text-[17rem]"
+        className="pointer-events-none absolute -bottom-[0.16em] right-[-0.04em] select-none bg-[linear-gradient(to_bottom,var(--accent),transparent_95%)] bg-clip-text font-display text-[5rem] font-semibold leading-none tracking-tighter text-transparent opacity-20 sm:text-[7rem] lg:text-[9rem]"
       >
         {site.name}
       </p>
