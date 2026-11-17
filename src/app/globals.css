@@ -21,26 +21,8 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0a0e20;
-    --surface: #131836;
-    --ink: #eceef8;
-    --muted: #a0a8c6;
-    --line: rgba(255, 255, 255, 0.09);
-    --accent: #8490ff;
-    --on-accent: #0a0e20;
-    --tint: #1c2352;
-    --glow: 0.22;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 36px -16px rgba(0, 0, 0, 0.6);
-    --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.3), 0 28px 60px -20px rgba(104, 120, 255, 0.4);
-    --show-sun: block;
-    --show-moon: none;
-    --map-filter: invert(0.92) hue-rotate(180deg) saturate(0.8) brightness(0.95);
-    color-scheme: dark;
-  }
-}
-
+/* Light is the default. The dark palette applies only after a visitor picks it
+   with the toggle in the header. */
 :root[data-theme="dark"] {
   --bg: #0a0e20;
   --surface: #131836;

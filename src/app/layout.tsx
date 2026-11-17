@@ -60,10 +60,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f8fc" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0e20" },
-  ],
+  themeColor: "#f7f8fc",
 };
 
 // Tells search engines who and where the company is.
@@ -100,7 +97,8 @@ const website = JSON.stringify({
 });
 
 // Marks that JavaScript is running (for scroll reveals) and applies a saved
-// light/dark choice before the first paint, so there is no flash.
+// dark choice before the first paint, so there is no flash. Without a saved
+// choice the site is always light, whatever the device setting.
 const themeScript = `(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
