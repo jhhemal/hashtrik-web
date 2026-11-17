@@ -20,7 +20,7 @@ const columns = [
       { label: "Home", href: "/" },
       { label: "Team", href: "/team" },
       { label: "How we work", href: "/services#process" },
-      { label: "Questions", href: "/services#questions" },
+      { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -120,7 +120,14 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-line py-6 text-sm text-muted">
           <p>© 2026 {site.name}. All rights reserved.</p>
-          <p>Headquartered in Lansdale, Pennsylvania</p>
+          <p className="flex gap-6">
+            <Link href="/privacy" className="transition-colors hover:text-accent">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-accent">
+              Terms and Conditions
+            </Link>
+          </p>
           <a href="#main" className="inline-flex items-center gap-2 font-medium text-ink transition-colors hover:text-accent">
             Back to top
             <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { faqs } from "@/lib/site";
 
 export function Faq({ limit }: { limit?: number }) {
@@ -8,6 +9,9 @@ export function Faq({ limit }: { limit?: number }) {
         <div data-reveal>
           <h2 className="type-section">Questions people ask first</h2>
           <p className="mt-4 text-lg text-muted">Straight answers on price, timing and ownership.</p>
+          <Link href="/faq" className="button button-soft mt-7">
+            See all questions
+          </Link>
         </div>
         <div className="space-y-3" data-reveal>
           {items.map((item, i) => (

@@ -210,6 +210,87 @@ export const oikko = {
   network: ["Retail shop", "Clinic", "Restaurant", "Logistics", "Accounting", "Wholesaler"],
 };
 
+// The full FAQ page. The first group reuses the short list shown on other pages.
+export const faqGroups = [
+  { id: "working-with-us", title: "Working with us", items: faqs },
+  {
+    id: "pricing",
+    title: "Pricing and payment",
+    items: [
+      {
+        q: "Do you charge by the hour or by the project?",
+        a: "Projects have one fixed price agreed in writing before work starts. Dedicated teams and care plans are a flat monthly fee. We don't send surprise hourly bills.",
+      },
+      {
+        q: "When do I pay?",
+        a: "Fixed projects are paid in stages as working releases arrive, so you only pay for progress you can see. Monthly plans are billed at the start of each month.",
+      },
+      {
+        q: "What if I need to change the scope halfway?",
+        a: "That is normal. We tell you what the change does to the price and the date, and nothing is added until you have agreed to it.",
+      },
+      {
+        q: "Is the first conversation free?",
+        a: "Yes. The first call costs nothing and comes with no obligation.",
+      },
+    ],
+  },
+  {
+    id: "oikko",
+    title: "Oikko",
+    items: [
+      {
+        q: "What is Oikko?",
+        a: "Oikko is our platform for businesses. Members get Hashtrik as their technology team on a monthly subscription, and a profile in a network where businesses find partners, suppliers and customers.",
+      },
+      {
+        q: "When does Oikko launch?",
+        a: "We have not announced a date yet. Join the waitlist through the Contact page and we will write to you before it opens.",
+      },
+      {
+        q: "How much will Oikko cost?",
+        a: "Plans and prices will be published at launch. The idea is one predictable monthly fee instead of a large upfront project cost.",
+      },
+      {
+        q: "How is Oikko different from hiring Hashtrik for a project?",
+        a: "A project has a fixed scope and a fixed price. Oikko is ongoing: we build and run your website and apps month after month, and your business also joins the Oikko network.",
+      },
+    ],
+  },
+  {
+    id: "after-launch",
+    title: "After launch and support",
+    items: [
+      {
+        q: "Who hosts the product?",
+        a: "It runs in accounts that belong to you, which we set up and manage. If you ever leave, everything is already in your name.",
+      },
+      {
+        q: "What does a care plan cover?",
+        a: "Bug fixes, security updates, performance checks and a set number of improvement hours each month, plus a short health report in plain language.",
+      },
+      {
+        q: "Can you train my team to use it?",
+        a: "Yes. Every launch includes a handover session and written instructions for the people who will use and manage the product.",
+      },
+    ],
+  },
+  {
+    id: "privacy-security",
+    title: "Privacy and security",
+    items: [
+      {
+        q: "How do you keep our data safe?",
+        a: "Access is limited to the people working on your project, data is encrypted in transit, and backups are tested. We agree the specifics with you before the build starts.",
+      },
+      {
+        q: "Does this website track me?",
+        a: "No. It has no advertising or analytics cookies. The details are in our Privacy Policy.",
+      },
+    ],
+  },
+];
+
 export const products = [
   {
     name: "Trikdesk",
