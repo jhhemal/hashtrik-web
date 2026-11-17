@@ -20,8 +20,15 @@ const columns = [
       { label: "Home", href: "/" },
       { label: "Team", href: "/team" },
       { label: "How we work", href: "/services#process" },
-      { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Help and legal",
+    links: [
+      { label: "FAQ", href: "/faq" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms and Conditions", href: "/terms" },
     ],
   },
 ];
@@ -44,7 +51,7 @@ export function Footer() {
       </p>
 
       <div className="wrap relative">
-        <div className="grid gap-12 py-16 lg:grid-cols-[1.5fr_2.5fr] lg:gap-16">
+        <div className="grid gap-12 py-16 lg:grid-cols-[1.3fr_2.7fr] lg:gap-14">
           <div>
             <Link href="/" className="flex w-fit items-center">
               <Logo className="h-9" />
@@ -97,7 +104,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
             {columns.map((column) => (
               <div key={column.title}>
                 <p className="font-display text-lg font-semibold">{column.title}</p>
@@ -120,14 +127,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-t border-line py-6 text-sm text-muted">
           <p>© 2026 {site.name}. All rights reserved.</p>
-          <p className="flex gap-6">
-            <Link href="/privacy" className="transition-colors hover:text-accent">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="transition-colors hover:text-accent">
-              Terms and Conditions
-            </Link>
-          </p>
+          <p>Headquartered in Lansdale, Pennsylvania</p>
           <a href="#main" className="inline-flex items-center gap-2 font-medium text-ink transition-colors hover:text-accent">
             Back to top
             <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
