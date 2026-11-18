@@ -94,7 +94,7 @@ export const privacy: LegalSection[] = [
     id: "contact",
     heading: "Contact us",
     paragraphs: [
-      "Questions about this policy or about your information can be sent to hello@hashtrik.com, or by post to Hashtrik, 722 W 3rd St, Lansdale, PA 19446, United States.",
+      "Questions about this policy or about your information can be sent to hello@hashtrik.com. Hashtrik is based in Lansdale, Pennsylvania, United States.",
     ],
   },
 ];
@@ -196,7 +196,7 @@ export const terms: LegalSection[] = [
     id: "contact",
     heading: "Contact us",
     paragraphs: [
-      "Questions about these terms can be sent to hello@hashtrik.com, or by post to Hashtrik, 722 W 3rd St, Lansdale, PA 19446, United States.",
+      "Questions about these terms can be sent to hello@hashtrik.com. Hashtrik is based in Lansdale, Pennsylvania, United States.",
     ],
   },
 ];

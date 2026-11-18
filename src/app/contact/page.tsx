@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   title: "Contact",
   description:
-    "Contact Hashtrik at 722 W 3rd St, Lansdale, PA 19446. Tell us what you want to build and we reply within one working day.",
+    "Contact Hashtrik in Lansdale, PA 19446. Tell us what you want to build and we reply within one working day.",
   path: "/contact",
 });
 

@@ -76,7 +76,6 @@ const organization = JSON.stringify({
   description: site.description,
   address: {
     "@type": "PostalAddress",
-    streetAddress: site.address.street,
     addressLocality: site.address.city,
     addressRegion: site.address.state,
     postalCode: site.address.zip,

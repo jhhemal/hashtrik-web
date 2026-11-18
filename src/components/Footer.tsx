@@ -87,12 +87,12 @@ export function Footer() {
                 </dt>
                 <dd>
                   <a
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addressLine)}`}
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressLine)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-medium transition-colors hover:text-accent"
                   >
-                    {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
+                    {addressLine}
                   </a>
                   <span className="block text-sm text-muted">{site.hours}</span>
                 </dd>

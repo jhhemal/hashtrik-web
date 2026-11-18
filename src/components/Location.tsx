@@ -9,7 +9,7 @@ export function Location() {
         <div className="overflow-hidden rounded-[1.25rem] bg-tint">
           <iframe
             title={`Map showing Hashtrik headquarters at ${addressLine}`}
-            src={`https://www.google.com/maps?q=${query}&z=15&output=embed`}
+            src={`https://www.google.com/maps?q=${query}&z=13&output=embed`}
             className="map-frame block h-80 w-full border-0 lg:h-full lg:min-h-[26rem]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -21,9 +21,9 @@ export function Location() {
           <address className="mt-5 text-lg not-italic">
             {site.name}
             <br />
-            {site.address.street}
-            <br />
             {site.address.city}, {site.address.state} {site.address.zip}
+            <br />
+            United States
           </address>
           <dl className="mt-6 space-y-4 border-t border-line pt-6">
             <div>
@@ -41,12 +41,12 @@ export function Location() {
           </dl>
           <p className="mt-6 text-muted">Visits are by appointment, so write to us first.</p>
           <a
-            href={`https://www.google.com/maps/dir/?api=1&destination=${query}`}
+            href={`https://www.google.com/maps/search/?api=1&query=${query}`}
             target="_blank"
             rel="noopener noreferrer"
             className="button mt-auto self-start max-lg:mt-6"
           >
-            Get directions
+            Open in Google Maps
           </a>
         </div>
       </div>

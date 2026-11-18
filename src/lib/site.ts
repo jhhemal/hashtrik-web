@@ -7,7 +7,6 @@ export const site = {
   email: "hello@hashtrik.com",
   hours: "Monday to Friday, 9am to 6pm ET",
   address: {
-    street: "722 W 3rd St",
     city: "Lansdale",
     state: "PA",
     zip: "19446",
@@ -17,7 +16,8 @@ export const site = {
     "Hashtrik is a software company headquartered in Lansdale, Pennsylvania. We design and build web apps, mobile apps and AI tools, and we are the team behind Oikko.",
 };
 
-export const addressLine = `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`;
+// The public address is the town only; there is no street address on the site.
+export const addressLine = `${site.address.city}, ${site.address.state} ${site.address.zip}`;
 
 export const nav = [
   { href: "/services", label: "Services" },
